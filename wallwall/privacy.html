@@ -13,37 +13,43 @@
     <style>
         :root {
             --primary-color: #FC7A09;
+            --old-heading-color: #0f172a;
         }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fff;
-            padding: 20px;
+            line-height: 1.7;
+            color: #1f2933;
+            background: #f7f9fa;
+            padding: 40px 16px 60px;
             font-size: 16px;
             margin: 0;
         }
 
         main {
             max-width: 860px;
-            margin: 24px auto 60px;
+            margin: 0 auto;
         }
 
         h1 {
             color: var(--primary-color);
-            font-size: 28px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 10px;
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0 0 24px;
+            text-align: left;
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-top: 15px;
         }
 
         h2 {
             color: var(--primary-color);
-            font-size: 20px;
-            font-weight: bold;
-            margin: 30px 0 15px 0;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 30px 0 16px 0;
         }
 
         h3 {
@@ -56,6 +62,7 @@
         p {
             margin-bottom: 15px;
             font-size: 16px;
+            color: #475467;
         }
 
         ul, ol {
@@ -66,19 +73,13 @@
         li {
             margin-bottom: 8px;
             font-size: 16px;
-        }
-
-        .date {
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 30px;
+            color: #475467;
         }
 
         .contact {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
+            background: #f7f9fa;
+            padding: 16px;
+            border-radius: 10px;
             margin: 20px 0;
         }
 
@@ -98,11 +99,29 @@
             margin: 20px 0;
             border-left: 4px solid #ffc107;
         }
+
+        .content-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 28px 16px 40px;
+            }
+
+            .content-card {
+                padding: 24px;
+            }
+        }
     </style>
 </head>
 <body>
 <main>
-<h1>월월 개인정보처리방침</h1>
+<h1>개인정보처리방침</h1>
+<section class="content-card">
 <p>Amuse8(이하 "회사" 또는 "우리")이 개발한 미·중 경제 뉴스 숏폼·카드형 콘텐츠 플랫폼(이하 "서비스")은 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 본 개인정보처리방침을 수립·공개합니다.</p>
 
 <h2>제1조 개인정보의 처리 목적</h2>
@@ -203,6 +222,7 @@
 <div class="contact">
     <strong>현재 버전:</strong> 2025년 11월 24일부터 적용
 </div>
+</section>
 </main>
 </body>
 </html>
