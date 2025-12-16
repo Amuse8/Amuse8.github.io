@@ -10,118 +10,88 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="nav.css">
     <script src="nav.js" defer></script>
+    <link rel="stylesheet" href="styles/doc-page.css">
     <style>
-        :root {
-            --primary-color: #FC7A09;
-            --text-color: #333;
-            --muted-color: #555;
+        .support-hero {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            margin-bottom: 24px;
         }
-        body {
-            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background: #fff;
-            padding: 20px;
-            margin: 0;
-        }
-        main {
-            max-width: 860px;
-            margin: 24px auto 60px;
-        }
-        .app-header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-        .app-header img {
+
+        .support-hero__logo {
             width: 96px;
             height: 96px;
             border-radius: 24px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+            flex-shrink: 0;
         }
-        h1 {
-            font-size: 30px;
-            margin: 16px 0 8px;
-            color: var(--primary-color);
+
+        .support-hero__text p {
+            margin: 0 0 10px;
         }
-        .subtitle {
-            color: var(--muted-color);
+
+        .support-tagline {
+            color: var(--doc-heading-color);
             font-size: 18px;
-            margin-bottom: 8px;
+            font-weight: 700;
         }
-        .card {
-            border: 1px solid #eee;
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 24px;
+
+        .support-contact p {
+            margin: 6px 0;
         }
-        .card h2 {
-            margin-top: 0;
-            color: var(--primary-color);
-            border-bottom: 2px solid #f2f2f2;
-            padding-bottom: 8px;
-            font-size: 20px;
+
+        .support-contact strong {
+            color: var(--doc-heading-color);
         }
-        ul {
-            padding-left: 20px;
-        }
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .contact-detail {
-            margin-bottom: 6px;
-        }
+
         @media (max-width: 600px) {
-            .card {
-                padding: 20px;
+            .support-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .support-hero__text p {
+                text-align: left;
             }
         }
     </style>
 </head>
-<body>
-<main>
-    <section class="app-header">
-        <img src="../assets/app_icon.png" alt="월월 앱 아이콘">
-        <h1>월월 고객 지원</h1>
-        <p class="subtitle">매일 아침, AI가 전하는 글로벌 경제 브리핑</p>
-        <p>월월은 AI가 선별한 미국·중국 핵심 이슈와 실시간 글로벌 시장 정보를 1분 만에 전달해 초보부터 중급 투자자까지 빠르게 시장을 이해할 수 있도록 돕는 서비스입니다.</p>
-    </section>
+<body class="doc-page">
+<main class="doc-container">
+<h1 class="doc-title">월월 고객 지원</h1>
+<section class="doc-card">
+    <div class="support-hero">
+        <img src="../assets/app_icon.png" alt="월월 앱 아이콘" class="support-hero__logo">
+        <div class="support-hero__text">
+            <p class="support-tagline">매일 아침, AI가 전하는 글로벌 경제 브리핑</p>
+            <p>월월은 AI가 선별한 미국·중국 핵심 이슈와 실시간 글로벌 시장 정보를 1분 만에 전달해 초보부터 중급 투자자까지 빠르게 시장을 이해할 수 있도록 돕는 서비스입니다.</p>
+        </div>
+    </div>
 
-    <section class="card">
-        <h2>빠른 지원 안내</h2>
-        <p class="contact-detail"><strong>이메일:</strong> <a href="mailto:supports@amuse8.kr">supports@amuse8.kr</a></p>
-        <p class="contact-detail"><strong>지원 가능 시간:</strong> 평일 10:00 ~ 18:00 (KST)</p>
-        <p class="contact-detail"><strong>평균 응답 시간:</strong> 24시간 이내</p>
+    <h2>빠른 지원 안내</h2>
+    <div class="contact support-contact">
+        <p><strong>이메일:</strong> <a href="mailto:supports@amuse8.kr">supports@amuse8.kr</a></p>
+        <p><strong>지원 가능 시간:</strong> 평일 10:00 ~ 18:00 (KST)</p>
+        <p><strong>평균 응답 시간:</strong> 24시간 이내</p>
         <p>앱 이용 중 오류 신고, 기능 문의, 개선 제안 등 언제든지 이메일로 문의해 주세요.</p>
-    </section>
+    </div>
 
-    <section class="card">
-        <h2>서비스 제공자 정보</h2>
-        <p class="contact-detail"><strong>회사명:</strong> Amuse8 (아뮤즈8)</p>
-        <p class="contact-detail"><strong>사업자 소재지:</strong> 대한민국 서울 중구 퇴계로36길 2</p>
-        <p class="contact-detail"><strong>홈페이지:</strong> <a href="https://www.amuse8.kr/company">https://www.amuse8.kr/company</a></p>
-        <p>Amuse8은 AI 기반 정보 자동화 솔루션을 제공하는 기업으로, 월월을 통해 투자자에게 필요한 글로벌 경제 인사이트를 제공합니다.</p>
-    </section>
+    <h2>서비스 제공자 정보</h2>
+    <ul>
+        <li><strong>회사명:</strong> Amuse8 (아뮤즈8)</li>
+        <li><strong>사업자 소재지:</strong> 대한민국 서울 중구 퇴계로36길 2</li>
+        <li><strong>홈페이지:</strong> <a href="https://www.amuse8.kr/company">https://www.amuse8.kr/company</a></li>
+    </ul>
+    <p>Amuse8은 AI 기반 정보 자동화 솔루션을 제공하는 기업으로, 월월을 통해 투자자에게 필요한 글로벌 경제 인사이트를 제공합니다.</p>
 
-    <section class="card">
-        <h2>주요 도움말</h2>
-        <ul>
-            <li>앱 초기화, 오류 로그 전송 및 계정 관련 문의는 이메일에 기기 정보(모델명, OS 버전)와 함께 보내주세요.</li>
-            <li>서비스 내 콘텐츠 제휴, 협업, 비즈니스 파트너십은 <a href="mailto:supports@amuse8.kr">supports@amuse8.kr</a> 로 별도 문의 바랍니다.</li>
-            <li>데이터 정확도나 뉴스 출처 관련 문의 시 문제가 발생한 화면을 캡처해 주시면 신속한 확인이 가능합니다.</li>
-        </ul>
-    </section>
-
-    <section class="card">
-        <h2>정책 및 리소스</h2>
-        <ul>
-            <li><a href="https://amuse8.github.io/wallwall/privacy">개인정보처리방침 보기</a></li>
-            <li><a href="https://amuse8.github.io/wallwall/terms">서비스 이용약관 보기</a></li>
-        </ul>
-    </section>
+    <h2>주요 도움말</h2>
+    <ul>
+        <li>앱 초기화, 오류 로그 전송 및 기기 관련 문의는 이메일에 기기 정보(모델명, OS 버전)와 함께 보내주세요.</li>
+        <li>서비스 내 콘텐츠 제휴, 협업, 비즈니스 파트너십은 <a href="mailto:supports@amuse8.kr">supports@amuse8.kr</a> 로 별도 문의 바랍니다.</li>
+        <li>데이터 정확도나 뉴스 출처 관련 문의 시 문제가 발생한 화면을 캡처해 주시면 신속한 확인이 가능합니다.</li>
+    </ul>
+</section>
 </main>
 </body>
 </html>
