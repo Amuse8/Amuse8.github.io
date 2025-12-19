@@ -6,7 +6,7 @@
         icon: '/assets/app_icon_foreground.png'
     };
     const NAV_LINKS = [
-        { label: '회사', url: 'https://www.amuse8.kr/company' },
+        { label: '회사', url: 'https://www.amuse8.kr' },
         { label: '고객지원', url: 'https://wallwall.amuse8.kr/support' },
         { label: '이용약관', url: 'https://wallwall.amuse8.kr/terms' },
         { label: '개인정보처리방침', url: 'https://wallwall.amuse8.kr/privacy' }
