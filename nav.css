@@ -1,7 +1,7 @@
 :root {
     --wallwall-nav-height: 72px;
-    --wallwall-nav-bg-start: #FC7A09;
-    --wallwall-nav-bg-end: #FF9F3F;
+    --wallwall-nav-bg-start: #3879FF;
+    --wallwall-nav-bg-end: #6B9CFF;
     --wallwall-nav-text: #ffffff;
     --wallwall-nav-link-hover: rgba(255, 255, 255, 0.2);
 }
@@ -15,7 +15,7 @@ body.wallwall-has-nav {
     top: 0;
     left: 0;
     width: 100%;
-    background: #FA893B;
+    background: #3879FF;
     color: var(--wallwall-nav-text);
     z-index: 2000;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
