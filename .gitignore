@@ -1,2 +1,4 @@
 .idea
 tmp/
+.playwright-cli/
+serve.py

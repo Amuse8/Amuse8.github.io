@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: linear-gradient(180deg, #3879FF 13%, #D1E0FF 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.intro-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+.intro-content {
+    flex: 1 1 400px;
+    min-width: 300px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.intro-title {
+    /* Scales down between the two-column breakpoint and 1440px so the Korean
+       title stays on one line instead of breaking mid-word */
+    font-size: clamp(44px, 4.2vw, 60px);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 20px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    word-break: keep-all;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo lockup used instead of a plain text title on the English home page */
+.intro-brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.intro-brand__icon {
+    width: 76px;
+    height: 76px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.intro-brand__wordmark {
+    font-size: 60px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: #ffffff;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.intro-brand__wordmark em {
+    font-style: normal;
+    color: #B9CEFF;
+}
+
+.intro-subtitle {
+    font-size: 28px;
+    color: white;
+    margin-bottom: 44px;
+    line-height: 1.5;
+    font-weight: 500;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Longer, multi-line taglines read better a step down */
+.intro-subtitle--compact {
+    font-size: 23px;
+}
+
+.app-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.app-link {
+    display: inline-block;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+.app-link:hover {
+    transform: translateY(-4px);
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
+}
+
+.app-link:active {
+    transform: translateY(-2px);
+}
+
+.app-link img {
+    height: 60px;
+    width: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Adjust Google Play badge size to match App Store badge better */
+.app-link:nth-child(2) img {
+    height: 88px;
+    margin-top: -14px;
+    margin-bottom: -14px;
+}
+
+.intro-image-area {
+    flex: 1.55 1 460px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.intro-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 820px;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease;
+}
+
+.intro-image:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive design */
+@media (max-width: 968px) {
+    .intro-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 48px;
+    }
+
+    .intro-title {
+        font-size: 52px;
+    }
+
+    .intro-brand {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .intro-brand__icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 17px;
+    }
+
+    .intro-brand__wordmark {
+        font-size: 52px;
+    }
+
+    .intro-subtitle {
+        font-size: 24px;
+    }
+
+    .app-links {
+        justify-content: center;
+    }
+
+    .intro-image {
+        max-height: 500px;
+    }
+}
+
+@media (max-width: 640px) {
+    .main-content {
+        padding: 30px 24px;
+    }
+
+    .intro-title {
+        font-size: 38px;
+        margin-bottom: 16px;
+        line-height: 1.2;
+    }
+
+    .intro-brand {
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+
+    .intro-brand__icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 13px;
+    }
+
+    .intro-brand__wordmark {
+        font-size: 40px;
+    }
+
+    .intro-subtitle {
+        font-size: 20px;
+        margin-bottom: 32px;
+    }
+
+    .app-links {
+        gap: 12px;
+    }
+
+    .app-link img {
+        height: 48px;
+    }
+
+    .app-link:nth-child(2) img {
+        height: 70px;
+        margin-top: -11px;
+        margin-bottom: -11px;
+    }
+
+    .intro-image {
+        max-height: 400px;
+    }
+}
+
+/* Extra small screens like iPhone SE */
+@media (max-width: 375px) {
+    .main-content {
+        padding: 24px 20px;
+    }
+
+    .intro-title {
+        font-size: 32px;
+        margin-bottom: 14px;
+    }
+
+    .intro-brand__icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+    }
+
+    .intro-brand__wordmark {
+        font-size: 34px;
+    }
+
+    .intro-subtitle {
+        font-size: 18px;
+        margin-bottom: 28px;
+    }
+
+    .app-links {
+        gap: 10px;
+    }
+
+    .app-link img {
+        height: 44px;
+    }
+
+    .app-link:nth-child(2) img {
+        height: 64px;
+        margin-top: -10px;
+        margin-bottom: -10px;
+    }
+}

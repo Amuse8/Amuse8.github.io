@@ -34,7 +34,7 @@ body.wallwall-has-nav {
 .wallwall-nav__brand {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     color: var(--wallwall-nav-text);
     text-decoration: none;
     font-size: 20px;
@@ -42,9 +42,15 @@ body.wallwall-has-nav {
     letter-spacing: -0.02em;
 }
 
-.wallwall-nav__logo {
-    width: 30px;
-    height: 30px;
+.wallwall-nav__wordmark {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.wallwall-nav__wordmark em {
+    font-style: normal;
+    color: #B9CEFF;
 }
 
 .wallwall-nav__toggle {
@@ -90,10 +96,56 @@ body.wallwall-has-nav {
     top: 6px;
 }
 
+.wallwall-nav__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
 .wallwall-nav__links {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.wallwall-nav__lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
+    padding: 2px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+    flex-shrink: 0;
+}
+
+.wallwall-nav__lang-option {
+    min-width: 34px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.wallwall-nav__lang-option:hover,
+.wallwall-nav__lang-option:focus-visible {
+    color: #ffffff;
+    outline: none;
+}
+
+.wallwall-nav__lang-option:focus-visible {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7);
+}
+
+.wallwall-nav__lang-option.is-active {
+    background: #ffffff;
+    color: var(--wallwall-nav-bg-start);
 }
 
 .wallwall-nav__link {
@@ -133,6 +185,15 @@ body.wallwall-has-nav {
 
     .wallwall-nav__toggle {
         display: inline-flex;
+    }
+
+    .wallwall-nav__actions {
+        gap: 8px;
+    }
+
+    .wallwall-nav__lang-option {
+        min-width: 32px;
+        font-size: 12px;
     }
 
     .wallwall-nav__links {
