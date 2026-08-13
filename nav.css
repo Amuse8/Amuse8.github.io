@@ -220,13 +220,14 @@ body.wallwall-has-nav {
     .wallwall-nav__links {
         display: none;
         flex-direction: column;
+        gap: 6px;
         width: 100%;
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
         background: linear-gradient(135deg, var(--wallwall-nav-bg-start), var(--wallwall-nav-bg-end));
-        padding: 0;
+        padding: 8px 0;
         border-radius: 0;
         box-shadow: none;
     }
@@ -240,6 +241,6 @@ body.wallwall-has-nav {
         justify-content: center;
         text-align: center;
         border-radius: 0;
-        padding: 14px 0;
+        padding: 10px 0;
     }
 }

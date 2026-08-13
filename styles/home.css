@@ -175,7 +175,14 @@ body {
     .intro-section {
         flex-direction: column;
         text-align: center;
-        gap: 48px;
+        gap: 32px;
+    }
+
+    /* The desktop column split is horizontal; keep its basis out of the stack */
+    .intro-content,
+    .intro-image-area {
+        flex: 0 0 auto;
+        width: 100%;
     }
 
     .intro-title {
@@ -215,15 +222,19 @@ body {
         padding: 30px 24px;
     }
 
+    .intro-section {
+        gap: 20px;
+    }
+
     .intro-title {
         font-size: 38px;
-        margin-bottom: 16px;
+        margin-bottom: 24px;
         line-height: 1.2;
     }
 
     .intro-brand {
         gap: 12px;
-        margin-bottom: 14px;
+        margin-bottom: 22px;
     }
 
     .intro-brand__icon {
@@ -237,8 +248,12 @@ body {
     }
 
     .intro-subtitle {
-        font-size: 20px;
-        margin-bottom: 32px;
+        font-size: 17px;
+        margin-bottom: 30px;
+    }
+
+    .intro-subtitle--compact {
+        font-size: 16px;
     }
 
     .app-links {
@@ -282,8 +297,12 @@ body {
     }
 
     .intro-subtitle {
-        font-size: 18px;
-        margin-bottom: 28px;
+        font-size: 16px;
+        margin-bottom: 26px;
+    }
+
+    .intro-subtitle--compact {
+        font-size: 15px;
     }
 
     .app-links {
