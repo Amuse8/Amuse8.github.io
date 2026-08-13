@@ -109,6 +109,7 @@ body.wallwall-has-nav {
 }
 
 .wallwall-nav__lang {
+    margin-left: 14px;
     display: inline-flex;
     align-items: center;
     gap: 1px;
@@ -149,6 +150,8 @@ body.wallwall-has-nav {
 }
 
 .wallwall-nav__link {
+    display: inline-flex;
+    align-items: center;
     color: var(--wallwall-nav-text);
     text-decoration: none;
     font-weight: 700;
@@ -157,6 +160,20 @@ body.wallwall-has-nav {
     border-radius: 999px;
     transition: background 0.3s ease, transform 0.2s ease;
     letter-spacing: -0.01em;
+}
+
+.wallwall-nav__link-arrow {
+    margin-left: 4px;
+    font-size: 0.75em;
+    line-height: 1;
+    opacity: 0.7;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.wallwall-nav__link:hover .wallwall-nav__link-arrow,
+.wallwall-nav__link:focus-visible .wallwall-nav__link-arrow {
+    opacity: 1;
+    transform: translateY(-2px);
 }
 
 .wallwall-nav__link:hover,
@@ -191,6 +208,10 @@ body.wallwall-has-nav {
         gap: 8px;
     }
 
+    .wallwall-nav__lang {
+        margin-left: 0;
+    }
+
     .wallwall-nav__lang-option {
         min-width: 32px;
         font-size: 12px;
@@ -216,6 +237,7 @@ body.wallwall-has-nav {
 
     .wallwall-nav__link {
         width: 100%;
+        justify-content: center;
         text-align: center;
         border-radius: 0;
         padding: 14px 0;

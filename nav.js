@@ -8,22 +8,24 @@
             navLabel: '월월 글로벌 내비게이션',
             openMenu: '메뉴 열기',
             language: '언어 선택',
+            newTab: '새 탭에서 열림',
             links: [
-                { label: '회사', url: 'https://www.amuse8.kr' },
                 { label: '고객지원', url: '/support' },
                 { label: '이용약관', url: '/terms' },
-                { label: '개인정보처리방침', url: '/privacy' }
+                { label: '개인정보처리방침', url: '/privacy' },
+                { label: '회사', url: 'https://www.amuse8.kr', external: true }
             ]
         },
         en: {
             navLabel: 'WallWall global navigation',
             openMenu: 'Open menu',
             language: 'Select language',
+            newTab: 'opens in a new tab',
             links: [
-                { label: 'Company', url: 'https://www.amuse8.kr' },
                 { label: 'Support', url: '/en/support' },
                 { label: 'Terms', url: '/en/terms' },
-                { label: 'Privacy', url: '/en/privacy' }
+                { label: 'Privacy', url: '/en/privacy' },
+                { label: 'Company', url: 'https://www.amuse8.kr', external: true }
             ]
         }
     };
@@ -61,9 +63,9 @@
         const list = navigator.languages && navigator.languages.length
             ? navigator.languages
             : [navigator.language || navigator.userLanguage || ''];
-        const known = list.filter(Boolean);
-        if (!known.length) return null;
-        return known.some(tag => String(tag).toLowerCase().indexOf('ko') === 0) ? 'ko' : 'en';
+        const primary = list.filter(Boolean)[0];
+        if (!primary) return null;
+        return String(primary).toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en';
     }
 
     /**
@@ -163,7 +165,7 @@
 
         const brandLink = document.createElement('a');
         brandLink.className = 'wallwall-nav__brand';
-        brandLink.href = pathFor(lang);
+        brandLink.href = lang === 'en' ? '/en/' : '/';
 
         // Wordmark: "Wall" in white plus "Wall" in the lighter brand blue
         const brandLabel = document.createElement('span');
@@ -182,8 +184,20 @@
             const anchor = document.createElement('a');
             anchor.className = 'wallwall-nav__link';
             anchor.href = link.url;
-            anchor.textContent = link.label;
             anchor.setAttribute('role', 'menuitem');
+            anchor.appendChild(document.createTextNode(link.label));
+
+            if (link.external) {
+                anchor.target = '_blank';
+                anchor.rel = 'noopener noreferrer';
+                anchor.setAttribute('aria-label', `${link.label} (${strings.newTab})`);
+                const arrow = document.createElement('span');
+                arrow.className = 'wallwall-nav__link-arrow';
+                arrow.setAttribute('aria-hidden', 'true');
+                arrow.textContent = '\u2197';
+                anchor.appendChild(arrow);
+            }
+
             linksWrapper.appendChild(anchor);
         });
 
