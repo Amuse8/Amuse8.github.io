@@ -27,6 +27,8 @@
     <li>Providing and operating the Service</li>
     <li>Providing social login, account creation, and account management</li>
     <li>Syncing user settings such as followed sectors and language</li>
+    <li>Providing the AI assistant (questions and answers about news articles), managing usage limits, and preventing abuse</li>
+    <li>Reviewing feedback on AI answers that users submit voluntarily</li>
     <li>Improving and optimizing Service quality</li>
     <li>Collecting and analyzing app errors (Firebase Crashlytics)</li>
     <li>Analyzing Service usage statistics</li>
@@ -45,6 +47,17 @@
     <li>Service language setting</li>
     <li>Authentication token information used to keep your session secure</li>
 </ul>
+
+<h3>Information Processed When You Use the AI Assistant</h3>
+<p>The AI assistant is an optional feature available to logged-in users from the news detail screen. When you use it, we process the following:</p>
+<ul>
+    <li>The questions you enter, the generated answers, and the sources cited in those answers</li>
+    <li>Earlier questions and answers within the same conversation (conversation context)</li>
+    <li>The safety-review result for each question</li>
+    <li>Account identifier, conversation and request identifiers, and usage-limit records such as the number of questions asked</li>
+    <li>Feedback you submit voluntarily: your rating, any comment you enter, the rated answer with its question and the immediately preceding exchange, and the article card the answer was based on</li>
+</ul>
+<p>To process a question, the question, the conversation context, the article's card content (title, summary, and sector analysis), and the source article text are sent to OpenAI as described in Article 7. Account information such as your email address, nickname, followed sectors, or holdings is not sent.</p>
 
 <h3>Information Collected Automatically</h3>
 <ul>
@@ -67,6 +80,9 @@
     <li><strong>Account information and synced settings:</strong> retained until account deletion, unless retention is required by applicable law</li>
     <li><strong>Profile photos:</strong> retained until you remove the photo or delete your account</li>
     <li><strong>Authentication token information:</strong> retained until logout, account deletion, or token expiration</li>
+    <li><strong>AI conversation content:</strong> removed when you leave the chat or start a new one; otherwise removed automatically once the temporary retention period of up to 24 hours from the conversation's creation ends</li>
+    <li><strong>AI answer feedback:</strong> retained for 90 days after submission</li>
+    <li><strong>AI usage-limit records (no conversation content):</strong> retained until 48 hours after the applicable daily or monthly limit period ends</li>
     <li><strong>Service usage analytics:</strong> retained for up to 14 months after collection</li>
     <li><strong>Error analysis data:</strong> retained according to Firebase Crashlytics retention policies</li>
     <li><strong>Advertising measurement data:</strong> retained for the period necessary for the purposes in Article 6, in accordance with the retention practices of Meta Platforms, Inc.</li>
@@ -87,6 +103,7 @@
     <li><strong>Google LLC (Firebase):</strong> app error collection, usage analytics, and remote configuration</li>
     <li><strong>Google LLC, Apple Inc., Kakao Corp.:</strong> social login authentication selected by the user</li>
     <li><strong>Amazon Web Services, Inc.:</strong> profile image storage and service data storage</li>
+    <li><strong>OpenAI OpCo, LLC:</strong> generating AI assistant answers and reviewing questions for safety</li>
 </ul>
 
 <h2>Article 6 — Meta Advertising Measurement</h2>
@@ -113,6 +130,15 @@
     <li><strong>Retention and use period:</strong> as described in this Policy and in each processor's or recipient's retention policies</li>
 </ul>
 <p>Article 6 governs the details of what is transferred to Meta Platforms, Inc., why, and the choices available to you.</p>
+<p>When you use the AI assistant, personal information is transferred overseas as follows. Nothing below is sent unless you use the AI assistant, and not using it does not restrict any other part of the Service.</p>
+<ul>
+    <li><strong>Recipient:</strong> OpenAI OpCo, LLC (1455 3rd Street, San Francisco, CA 94158, United States, <a href="mailto:privacy@openai.com">privacy@openai.com</a>)</li>
+    <li><strong>Countries of transfer:</strong> the United States and the countries where OpenAI's sub-processors are located (<a href="https://openai.com/policies/sub-processor-list/">OpenAI sub-processor list</a>)</li>
+    <li><strong>Purpose of transfer:</strong> generating AI assistant answers and reviewing questions for safety</li>
+    <li><strong>Categories of data transferred:</strong> your question, earlier questions and answers in the same conversation, the article's card content (title, summary, and sector analysis), and the source article text</li>
+    <li><strong>Timing and method:</strong> transmitted over an encrypted connection each time you send a question</li>
+    <li><strong>Retention and use period:</strong> OpenAI does not use data sent through its API to train its models by default and may retain it for up to 30 days for abuse monitoring</li>
+</ul>
 
 <h2>Article 8 — Rights and Obligations of Data Subjects and How to Exercise Them</h2>
 <p>As data subjects, users may exercise the following rights:</p>
@@ -157,7 +183,7 @@
 <p>This Privacy Policy takes effect on its effective date. In the event of any additions, deletions, or corrections to its content due to changes in laws or policies, such changes will be announced through notices starting 7 days before they take effect.</p>
 
 <div class="contact">
-    <strong>Current version:</strong> effective as of August 13, 2026
+    <strong>Current version:</strong> effective as of September 15, 2026
 </div>
 </section>
 </main>
