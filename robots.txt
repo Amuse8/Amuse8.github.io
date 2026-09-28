@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://wallwall.amuse8.kr/sitemap.xml
