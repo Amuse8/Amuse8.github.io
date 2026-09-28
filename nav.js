@@ -1,7 +1,6 @@
 (function () {
     const NAV_ID = 'wallwall-nav';
-    const LANG_KEY = 'wallwall-lang';
-    const REDIRECT_FLAG = 'wallwall-lang-redirected';
+    const lang = window.WallWallLang;
 
     const STRINGS = {
         ko: {
@@ -10,9 +9,9 @@
             language: '언어 선택',
             newTab: '새 탭에서 열림',
             links: [
-                { label: '고객지원', url: '/support' },
-                { label: '이용약관', url: '/terms' },
-                { label: '개인정보처리방침', url: '/privacy' },
+                { label: '고객지원', url: '/ko/support' },
+                { label: '이용약관', url: '/ko/terms' },
+                { label: '개인정보처리방침', url: '/ko/privacy' },
                 { label: '회사', url: 'https://www.amuse8.kr', external: true }
             ]
         },
@@ -22,89 +21,13 @@
             language: 'Select language',
             newTab: 'opens in a new tab',
             links: [
-                { label: 'Support', url: '/en/support' },
-                { label: 'Terms', url: '/en/terms' },
-                { label: 'Privacy', url: '/en/privacy' },
+                { label: 'Support', url: '/support' },
+                { label: 'Terms', url: '/terms' },
+                { label: 'Privacy', url: '/privacy' },
                 { label: 'Company', url: 'https://www.amuse8.kr', external: true }
             ]
         }
     };
-
-    function readStoredLang() {
-        try {
-            const value = window.localStorage.getItem(LANG_KEY);
-            return value === 'ko' || value === 'en' ? value : null;
-        } catch (error) {
-            return null;
-        }
-    }
-
-    function storeLang(lang) {
-        try {
-            window.localStorage.setItem(LANG_KEY, lang);
-        } catch (error) {
-            /* private mode: preference simply does not persist */
-        }
-    }
-
-    function currentLang() {
-        return /^\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'ko';
-    }
-
-    /** Path of the current page in the other language, e.g. /privacy <-> /en/privacy */
-    function pathFor(lang) {
-        const path = window.location.pathname;
-        const koPath = path.replace(/^\/en(?=\/|$)/, '') || '/';
-        if (lang === 'ko') return koPath;
-        return koPath === '/' ? '/en/' : '/en' + koPath;
-    }
-
-    function browserLang() {
-        const list = navigator.languages && navigator.languages.length
-            ? navigator.languages
-            : [navigator.language || navigator.userLanguage || ''];
-        const primary = list.filter(Boolean)[0];
-        if (!primary) return null;
-        return String(primary).toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en';
-    }
-
-    /**
-     * Language resolution, in order: ?lang= in the URL, a stored choice from the
-     * switcher, then the browser language. Only the first visit redirects, so a
-     * shared link to a specific language always wins afterwards.
-     */
-    function resolveLanguage() {
-        const requested = new URLSearchParams(window.location.search).get('lang');
-        if (requested === 'ko' || requested === 'en') {
-            storeLang(requested);
-            if (requested !== currentLang()) {
-                window.location.replace(pathFor(requested));
-                return true;
-            }
-            return false;
-        }
-
-        if (readStoredLang()) return false;
-
-        let alreadyRedirected = false;
-        try {
-            alreadyRedirected = window.sessionStorage.getItem(REDIRECT_FLAG) === '1';
-        } catch (error) {
-            alreadyRedirected = false;
-        }
-        if (alreadyRedirected) return false;
-
-        const preferred = browserLang();
-        if (!preferred || preferred === currentLang()) return false;
-
-        try {
-            window.sessionStorage.setItem(REDIRECT_FLAG, '1');
-        } catch (error) {
-            /* no session storage: fall through, the redirect still happens once */
-        }
-        window.location.replace(pathFor(preferred));
-        return true;
-    }
 
     function normalizeUrl(url) {
         try {
@@ -125,23 +48,23 @@
         toggle.setAttribute('aria-expanded', 'false');
     }
 
-    function buildLanguageSwitcher(lang, strings) {
+    function buildLanguageSwitcher(current, strings) {
         const group = document.createElement('div');
         group.className = 'wallwall-nav__lang';
         group.setAttribute('role', 'group');
         group.setAttribute('aria-label', strings.language);
 
-        [['ko', 'KR'], ['en', 'EN']].forEach(([code, label]) => {
+        [['en', 'EN'], ['ko', 'KR']].forEach(([code, label]) => {
             const option = document.createElement('a');
             option.className = 'wallwall-nav__lang-option';
             option.textContent = label;
-            option.href = pathFor(code);
+            option.href = lang.pathFor(code);
             option.setAttribute('lang', code);
-            if (code === lang) {
+            if (code === current) {
                 option.classList.add('is-active');
                 option.setAttribute('aria-current', 'true');
             }
-            option.addEventListener('click', () => storeLang(code));
+            option.addEventListener('click', () => lang.storeLang(code));
             group.appendChild(option);
         });
 
@@ -153,8 +76,8 @@
             return;
         }
 
-        const lang = currentLang();
-        const strings = STRINGS[lang];
+        const current = lang.currentLang();
+        const strings = STRINGS[current];
 
         const nav = document.createElement('nav');
         nav.id = NAV_ID;
@@ -165,7 +88,7 @@
 
         const brandLink = document.createElement('a');
         brandLink.className = 'wallwall-nav__brand';
-        brandLink.href = lang === 'en' ? '/en/' : '/';
+        brandLink.href = current === 'ko' ? '/ko/' : '/';
 
         // Wordmark: "Wall" in white plus "Wall" in the lighter brand blue
         const brandLabel = document.createElement('span');
@@ -204,7 +127,7 @@
         const actions = document.createElement('div');
         actions.className = 'wallwall-nav__actions';
         actions.appendChild(linksWrapper);
-        actions.appendChild(buildLanguageSwitcher(lang, strings));
+        actions.appendChild(buildLanguageSwitcher(current, strings));
 
         const toggleButton = document.createElement('button');
         toggleButton.className = 'wallwall-nav__toggle';
@@ -258,7 +181,7 @@
         });
     }
 
-    if (resolveLanguage()) {
+    if (!lang || lang.redirecting) {
         return;
     }
 
