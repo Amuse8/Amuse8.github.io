@@ -32,6 +32,7 @@
     <li>Providing the AI assistant (questions about news articles and your conversation history), managing usage limits, and preventing abuse</li>
     <li>Reviewing feedback on AI answers that users submit voluntarily</li>
     <li>Improving and optimizing Service quality</li>
+    <li>Sending push notifications about the Service</li>
     <li>Collecting and analyzing app errors (Firebase Crashlytics)</li>
     <li>Analyzing Service usage statistics</li>
     <li>Measuring advertising performance and optimizing ad delivery</li>
@@ -60,6 +61,16 @@
 </ul>
 <p>To answer a question, the question, the conversation context, and relevant news context are sent to OpenAI as described in Article 7. Account information such as your email address, nickname, followed sectors, or holdings is not sent.</p>
 
+<h3>Information Processed When You Use Push Notifications</h3>
+<p>Push notifications are sent only if you allow notifications on your device, and you can manage notifications in the Service's settings. To send them, we process the following:</p>
+<ul>
+    <li>The device registration token used to deliver notifications (Firebase Cloud Messaging) and an app installation identifier</li>
+    <li>Service language, device time zone, app version, and operating system type</li>
+    <li>Whether notifications are allowed on your device and your notification settings in the app</li>
+    <li>The times you first and most recently used the app</li>
+    <li>If you are logged in, the link between the device and your account, used to tailor notifications to your settings, such as followed sectors</li>
+</ul>
+
 <h3>Information Collected Automatically</h3>
 <ul>
     <li><strong>Device information:</strong> device model, OS version, app version, unique device identifier</li>
@@ -84,6 +95,7 @@
     <li><strong>AI conversation content:</strong> retained until you delete the conversation or delete your account, and removed automatically 90 days after the last message</li>
     <li><strong>AI answer feedback:</strong> retained for 90 days after submission</li>
     <li><strong>AI usage-limit records (no conversation content):</strong> retained until 48 hours after the applicable daily or monthly limit period ends</li>
+    <li><strong>Push notification device information:</strong> retained until the device registration token is reported invalid, 365 days pass since you last used the app, or you delete your account; deleting your account also removes the link to your account</li>
     <li><strong>Service usage analytics:</strong> retained for up to 14 months after collection</li>
     <li><strong>Error analysis data:</strong> retained according to Firebase Crashlytics retention policies</li>
     <li><strong>Advertising measurement data:</strong> retained for the period necessary for the purposes in Article 6, in accordance with the retention practices of Meta Platforms, Inc.</li>
@@ -101,7 +113,7 @@
 <h2>Article 5 — Outsourcing of Personal Information Processing</h2>
 <p>The Company outsources personal information processing tasks as follows in order to provide the Service:</p>
 <ul>
-    <li><strong>Google LLC (Firebase):</strong> app error collection, usage analytics, and remote configuration</li>
+    <li><strong>Google LLC (Firebase):</strong> app error collection, usage analytics, remote configuration, and push notification delivery</li>
     <li><strong>Google LLC, Apple Inc., Kakao Corp.:</strong> social login authentication selected by the user</li>
     <li><strong>Amazon Web Services, Inc.:</strong> profile image storage and service data storage</li>
     <li><strong>OpenAI OpCo, LLC:</strong> generating AI assistant answers and preventing abuse</li>
@@ -126,8 +138,8 @@
 <ul>
     <li><strong>Recipients:</strong> Google LLC, Apple Inc., Amazon Web Services, Inc., Meta Platforms, Inc.</li>
     <li><strong>Countries of transfer:</strong> the United States and other countries where each processor or recipient operates its services</li>
-    <li><strong>Purpose of transfer:</strong> app error analysis, usage analytics, social login authentication, profile image storage, Service operation, and advertising measurement</li>
-    <li><strong>Categories of data transferred:</strong> account identifiers, email address if provided, profile information, device information, approximate location, usage records, error logs, app events, and the device advertising identifier where you have allowed tracking</li>
+    <li><strong>Purpose of transfer:</strong> app error analysis, usage analytics, push notification delivery, social login authentication, profile image storage, Service operation, and advertising measurement</li>
+    <li><strong>Categories of data transferred:</strong> account identifiers, email address if provided, profile information, device information, approximate location, usage records, error logs, the device registration token and notification content needed to deliver push notifications, app events, and the device advertising identifier where you have allowed tracking</li>
     <li><strong>Retention and use period:</strong> as described in this Policy and in each processor's or recipient's retention policies</li>
 </ul>
 <p>Article 6 governs the details of what is transferred to Meta Platforms, Inc., why, and the choices available to you.</p>
@@ -184,7 +196,7 @@
 <p>This Privacy Policy takes effect on its effective date. In the event of any additions, deletions, or corrections to its content due to changes in laws or policies, such changes will be announced through notices starting 7 days before they take effect.</p>
 
 <div class="contact">
-    <strong>Current version:</strong> effective as of September 25, 2026
+    <strong>Current version:</strong> effective as of October 1, 2026
 </div>
 </section>
 </main>
