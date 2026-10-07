@@ -92,17 +92,7 @@ body {
 
 .app-link {
     display: inline-block;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
-}
-
-.app-link:hover {
-    transform: translateY(-4px);
-    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
-}
-
-.app-link:active {
-    transform: translateY(-2px);
 }
 
 .app-link img {
@@ -113,24 +103,52 @@ body {
 }
 
 .intro-image-area {
-    flex: 1.55 1 460px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 300px;
-    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    animation: fadeIn 1s ease-out 0.2s backwards;
 }
 
+/* The hero image is a full-bleed wall of app screens: cropped to fit its box, its edges fading into the page gradient. */
 .intro-image {
-    max-width: 100%;
-    height: auto;
-    max-height: 820px;
-    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
-    transition: transform 0.3s ease;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.intro-image:hover {
-    transform: scale(1.02);
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Desktop: the wall fills the right side, from mid-page to the window edge and from the nav to the footer. */
+@media (min-width: 969px) {
+    .main-content {
+        position: relative;
+        overflow: hidden;
+        min-height: 640px;
+    }
+
+    .intro-content {
+        position: relative;
+        z-index: 1;
+        flex: 0 1 auto;
+        max-width: 46%;
+    }
+
+    .intro-image-area {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: max(44%, calc(50% - 120px));
+        -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%), linear-gradient(180deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+        -webkit-mask-composite: source-in;
+        mask-image: linear-gradient(90deg, transparent 0%, #000 22%), linear-gradient(180deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+        mask-composite: intersect;
+    }
+
+    .intro-image {
+        object-position: left center;
+    }
 }
 
 /* Responsive design */
@@ -164,8 +182,13 @@ body {
         justify-content: center;
     }
 
-    .intro-image {
-        max-height: 500px;
+    /* A full-width band under the copy, fading out at the top and bottom. */
+    .intro-image-area {
+        height: 460px;
+        margin: 0 -20px;
+        width: calc(100% + 40px);
+        -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 15%, #000 85%, transparent 100%);
+        mask-image: linear-gradient(180deg, transparent 0%, #000 15%, #000 85%, transparent 100%);
     }
 }
 
@@ -204,8 +227,10 @@ body {
     }
 
 
-    .intro-image {
-        max-height: 400px;
+    .intro-image-area {
+        height: 380px;
+        margin: 0 -24px;
+        width: calc(100% + 48px);
     }
 }
 
