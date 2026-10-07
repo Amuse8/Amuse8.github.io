@@ -123,7 +123,6 @@ body {
 @media (min-width: 969px) {
     .main-content {
         position: relative;
-        overflow: hidden;
         min-height: 640px;
     }
 
@@ -136,18 +135,21 @@ body {
 
     .intro-image-area {
         position: absolute;
-        top: 0;
+        /* Tucks under the fixed nav, over the body's top padding, so the wall runs out from beneath it. */
+        top: -30px;
         bottom: 0;
         right: 0;
         left: max(44%, calc(50% - 120px));
-        -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%), linear-gradient(180deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+        /* Fades only where the wall meets the copy, and into the footer. */
+        -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%), linear-gradient(180deg, #000 90%, transparent 100%);
         -webkit-mask-composite: source-in;
-        mask-image: linear-gradient(90deg, transparent 0%, #000 22%), linear-gradient(180deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+        mask-image: linear-gradient(90deg, transparent 0%, #000 6%), linear-gradient(180deg, #000 90%, transparent 100%);
         mask-composite: intersect;
     }
 
+    /* Top-anchored so the lead screens sit at the same place whatever the window's shape. */
     .intro-image {
-        object-position: left center;
+        object-position: left top;
     }
 }
 

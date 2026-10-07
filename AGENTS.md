@@ -7,6 +7,7 @@ WallWall public GitHub Pages for Amuse8.
 - Links that must open a specific language use `/ko/<page>` or `/<page>?lang=en`; a bare `/<page>` follows the visitor's browser language.
 - Use root-absolute asset and stylesheet paths (`/nav.css`, `/assets/...`) so root and `ko/` pages share them.
 - Each language describes only the markets it ships: Korean pages say 미국과 중국, English pages say U.S. and Korea. Never mention the other language's market pair or that coverage differs by language.
+- `assets/app_intro_screenshots_<lang>.webp` (the home hero) are rendered from app screenshots in `/Users/user/Projects/a_news/docs/Code/app-store-screenshots/`; to change them, follow the landing hero part of that folder's `README.md` instead of editing the images here.
 - `privacy.html`, `terms.html`, `ko/privacy.html`, `ko/terms.html`, and `styles/doc-page.css` are the published policy docs.
 - Keep Flutter bundled copies in sync in `/Users/user/Projects/a_news/assets/html/`: `privacy.html`/`terms.html` mirror `ko/`, `privacy_en.html`/`terms_en.html` mirror the root pages, plus `doc-page.css`. The bundled copies are the same `<section class="doc-card">` body with no nav and no `<h1 class="doc-title">`.
 - When privacy or terms change here, update the Flutter copies in the same change
