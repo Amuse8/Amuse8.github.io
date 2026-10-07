@@ -60,39 +60,13 @@ body {
 
 .intro-brand {
     display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-bottom: 18px;
+    margin-bottom: 26px;
 }
 
-.intro-brand__icon {
-    width: 76px;
-    height: 76px;
-    border-radius: 20px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-}
-
-.intro-brand__wordmark {
-    font-size: 60px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1;
-    color: #ffffff;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-}
-
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-}
-
-.intro-brand__wordmark em {
-    font-style: normal;
-    color: #B9CEFF;
+.intro-brand__logo {
+    height: 72px;
+    width: auto;
+    filter: drop-shadow(0 2px 20px rgba(0, 0, 0, 0.1));
 }
 
 .intro-subtitle {
@@ -176,17 +150,10 @@ body {
 
     .intro-brand {
         justify-content: center;
-        gap: 16px;
     }
 
-    .intro-brand__icon {
-        width: 64px;
-        height: 64px;
-        border-radius: 17px;
-    }
-
-    .intro-brand__wordmark {
-        font-size: 52px;
+    .intro-brand__logo {
+        height: 60px;
     }
 
     .intro-subtitle {
@@ -212,18 +179,11 @@ body {
     }
 
     .intro-brand {
-        gap: 12px;
         margin-bottom: 22px;
     }
 
-    .intro-brand__icon {
-        width: 50px;
-        height: 50px;
-        border-radius: 13px;
-    }
-
-    .intro-brand__wordmark {
-        font-size: 40px;
+    .intro-brand__logo {
+        height: 46px;
     }
 
     .intro-subtitle {
@@ -255,14 +215,8 @@ body {
         padding: 24px 20px;
     }
 
-    .intro-brand__icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 12px;
-    }
-
-    .intro-brand__wordmark {
-        font-size: 34px;
+    .intro-brand__logo {
+        height: 40px;
     }
 
     .intro-subtitle {

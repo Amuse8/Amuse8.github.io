@@ -4,6 +4,7 @@
 
     const STRINGS = {
         ko: {
+            brandName: '월월',
             navLabel: '월월 글로벌 내비게이션',
             openMenu: '메뉴 열기',
             language: '언어 선택',
@@ -16,6 +17,7 @@
             ]
         },
         en: {
+            brandName: 'WallWall',
             navLabel: 'WallWall global navigation',
             openMenu: 'Open menu',
             language: 'Select language',
@@ -90,14 +92,13 @@
         brandLink.className = 'wallwall-nav__brand';
         brandLink.href = current === 'ko' ? '/ko/' : '/';
 
-        // Wordmark: "Wall" in white plus "Wall" in the lighter brand blue
-        const brandLabel = document.createElement('span');
-        brandLabel.className = 'wallwall-nav__wordmark';
-        brandLabel.appendChild(document.createTextNode('Wall'));
-        const brandLabelAccent = document.createElement('em');
-        brandLabelAccent.textContent = 'Wall';
-        brandLabel.appendChild(brandLabelAccent);
-        brandLink.appendChild(brandLabel);
+        const brandLogo = document.createElement('img');
+        brandLogo.className = 'wallwall-nav__logo';
+        brandLogo.src = '/assets/wallwall_wordmark_white.png';
+        brandLogo.alt = strings.brandName;
+        brandLogo.width = 653;
+        brandLogo.height = 118;
+        brandLink.appendChild(brandLogo);
 
         const linksWrapper = document.createElement('div');
         linksWrapper.className = 'wallwall-nav__links';

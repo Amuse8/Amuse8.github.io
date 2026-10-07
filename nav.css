@@ -42,15 +42,10 @@ body.wallwall-has-nav {
     letter-spacing: -0.02em;
 }
 
-.wallwall-nav__wordmark {
-    font-size: 25px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-}
-
-.wallwall-nav__wordmark em {
-    font-style: normal;
-    color: #B9CEFF;
+.wallwall-nav__logo {
+    display: block;
+    height: 22px;
+    width: auto;
 }
 
 .wallwall-nav__toggle {
