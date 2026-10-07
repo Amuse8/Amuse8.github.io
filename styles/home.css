@@ -58,20 +58,6 @@ body {
     animation: fadeInUp 0.8s ease-out;
 }
 
-.intro-title {
-    /* Scales down between the two-column breakpoint and 1440px so the Korean
-       title stays on one line instead of breaking mid-word */
-    font-size: clamp(44px, 4.2vw, 60px);
-    font-weight: 800;
-    color: white;
-    margin-bottom: 20px;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    word-break: keep-all;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Logo lockup used instead of a plain text title on the English home page */
 .intro-brand {
     display: flex;
     align-items: center;
@@ -95,6 +81,15 @@ body {
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
 .intro-brand__wordmark em {
     font-style: normal;
     color: #B9CEFF;
@@ -102,6 +97,7 @@ body {
 
 .intro-subtitle {
     font-size: 28px;
+    word-break: keep-all;
     color: white;
     margin-bottom: 44px;
     line-height: 1.5;
@@ -178,10 +174,6 @@ body {
         width: 100%;
     }
 
-    .intro-title {
-        font-size: 52px;
-    }
-
     .intro-brand {
         justify-content: center;
         gap: 16px;
@@ -217,12 +209,6 @@ body {
 
     .intro-section {
         gap: 20px;
-    }
-
-    .intro-title {
-        font-size: 38px;
-        margin-bottom: 24px;
-        line-height: 1.2;
     }
 
     .intro-brand {
@@ -267,11 +253,6 @@ body {
 @media (max-width: 375px) {
     .main-content {
         padding: 24px 20px;
-    }
-
-    .intro-title {
-        font-size: 32px;
-        margin-bottom: 14px;
     }
 
     .intro-brand__icon {
