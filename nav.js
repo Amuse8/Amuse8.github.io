@@ -61,6 +61,11 @@
             option.className = 'wallwall-nav__lang-option';
             option.textContent = label;
             option.href = lang.pathFor(code);
+            if (window.WallWallCampaign) {
+                const target = new URL(option.href);
+                target.searchParams.set('campaign', window.WallWallCampaign.campaign);
+                option.href = target.href;
+            }
             option.setAttribute('lang', code);
             if (code === current) {
                 option.classList.add('is-active');
